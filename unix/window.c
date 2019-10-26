@@ -125,6 +125,11 @@ void uiWindowSetTitle(uiWindow *w, const char *title)
 	gtk_window_set_title(w->window, title);
 }
 
+void uiWindowCenter(uiWindow* w)
+{
+	gtk_window_set_position(w->window, GTK_WIN_POS_CENTER_ALWAYS);
+}
+
 void uiWindowContentSize(uiWindow *w, int *width, int *height)
 {
 	GtkAllocation allocation;

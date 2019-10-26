@@ -292,6 +292,28 @@ void uiWindowSetTitle(uiWindow *w, const char *title)
 	// don't queue resize; the caption isn't part of what affects layout and sizing of the client area (it'll be ellipsized if too long)
 }
 
+void uiWindowCenter(uiWindow* w)
+{
+	RECT rect;
+
+	GetWindowRect(w->hwnd, &rect);
+
+	int height = rect.bottom - rect.top;
+	int width = rect.right - rect.left;
+
+	int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+	int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+	MoveWindow(
+		w->hwnd,
+		(screenWidth / 2) - width,
+		(screenHeight / 2) - height,
+		width,
+		height,
+		false
+	);
+}
+
 // this is used for both fullscreening and centering
 // see also https://blogs.msdn.microsoft.com/oldnewthing/20100412-00/?p=14353 and https://blogs.msdn.microsoft.com/oldnewthing/20050505-04/?p=35703
 static void windowMonitorRect(HWND hwnd, RECT *r)

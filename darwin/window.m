@@ -261,6 +261,11 @@ void uiWindowSetTitle(uiWindow *w, const char *title)
 	[w->window setTitle:uiprivToNSString(title)];
 }
 
+void uiWindowCenter(uiWindow *w)
+{
+	[w->window center];
+}
+
 void uiWindowContentSize(uiWindow *w, int *width, int *height)
 {
 	NSRect r;

@@ -9,9 +9,6 @@ project('libui', ['c', 'cpp'],
 	license : 'MIT'
 )
 
-libui_OS = host_machine.system()
-libui_MSVC = meson.get_compiler('c').get_id() == 'msvc'
-
 args = []
 links = []
 
@@ -40,9 +37,9 @@ sources = []
 deps = []
 
 subdir('common')
-if libui_OS == 'windows'
+if host_machine.system()== 'windows'
 	subdir('windows')
-elif libui_OS == 'darwin'
+elif host_machine.system() == 'darwin'
 	subdir('darwin')
 else
 	subdir('unix')
