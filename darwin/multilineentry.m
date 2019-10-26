@@ -67,6 +67,8 @@ static void uiMultilineEntryDestroy(uiControl *c)
 
 static void defaultOnChanged(uiMultilineEntry *e, void *data)
 {
+	(void)e;
+	(void)data;
 	// do nothing
 }
 

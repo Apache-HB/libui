@@ -49,6 +49,7 @@ static void addCTFeatureEntry(struct addCTFeatureEntryParams *p)
 
 static uiForEach otfArrayForEachAAT(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value, void *data)
 {
+	(void)otf;
 	__block struct addCTFeatureEntryParams p;
 
 	p.array = (CFMutableArrayRef) data;
@@ -68,6 +69,7 @@ static uiForEach otfArrayForEachAAT(const uiOpenTypeFeatures *otf, char a, char 
 // TODO find out which fonts differ in AAT small caps and test them with this
 static uiForEach otfArrayForEachOT(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value, void *data)
 {
+	(void)otf;
 	struct addCTFeatureEntryParams p;
 	char tagcstr[5];
 	CFStringRef tagstr;

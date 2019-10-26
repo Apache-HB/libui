@@ -1,6 +1,6 @@
 # 23 march 2019
 
-libui_sources += [
+sources += [
 	'unix/alloc.c',
 	'unix/area.c',
 	'unix/attrstr.c',
@@ -47,7 +47,7 @@ libui_sources += [
 	'unix/window.c',
 ]
 
-libui_deps += [
+deps += [
 	dependency('gtk+-3.0',
 		version: '>=3.10.0',
 		method: 'pkg-config',
@@ -58,5 +58,3 @@ libui_deps += [
 	meson.get_compiler('c').find_library('dl',
 		required: false),
 ]
-libui_soversion = '0'
-libui_rpath = '$ORIGIN'

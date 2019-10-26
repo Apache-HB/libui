@@ -44,7 +44,7 @@ uiprivGraphemes *uiprivNewGraphemes(void *s, size_t len)
 	gpos = 0;
 	while (ppos < len) {
 		range = CFStringGetRangeOfComposedCharactersAtIndex(cfstr, ppos);
-		for (i = 0; i < range.length; i++)
+		for (i = 0; i < (size_t)range.length; i++)
 			g->pointsToGraphemes[range.location + i] = gpos;
 		g->graphemesToPoints[gpos] = range.location;
 		gpos++;

@@ -152,16 +152,20 @@ uiDarwinControlDefaultHandle(uiWindow, window)
 
 uiControl *uiWindowParent(uiControl *c)
 {
+	(void)c;
 	return NULL;
 }
 
 void uiWindowSetParent(uiControl *c, uiControl *parent)
 {
+	(void)c;
+	(void)parent;
 	uiUserBugCannotSetParentOnToplevel("uiWindow");
 }
 
 static int uiWindowToplevel(uiControl *c)
 {
+	(void)c;
 	return 1;
 }
 
@@ -202,6 +206,8 @@ static void uiWindowSyncEnableState(uiDarwinControl *c, int enabled)
 
 static void uiWindowSetSuperview(uiDarwinControl *c, NSView *superview)
 {
+	(void)c;
+	(void)superview;
 	// TODO
 }
 
@@ -359,16 +365,21 @@ void uiWindowSetMargined(uiWindow *w, int margined)
 
 static int defaultOnClosing(uiWindow *w, void *data)
 {
+	(void)w;
+	(void)data;
 	return 0;
 }
 
 static void defaultOnPositionContentSizeChanged(uiWindow *w, void *data)
 {
+	(void)w;
+	(void)data;
 	// do nothing
 }
 
 uiWindow *uiNewWindow(const char *title, int width, int height, int hasMenubar)
 {
+	(void)hasMenubar;
 	uiWindow *w;
 
 	uiprivFinalizeMenus();

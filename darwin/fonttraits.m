@@ -171,53 +171,57 @@ void uiprivProcessFontTraits(uiprivFontStyleData *d, uiFontDescriptor *out)
 	weight = [d weight];
 	width = [d width];
 
-	if (!hasWeight)
+	if (!hasWeight) {
 		// TODO this scale is a bit lopsided
-		if (weight <= -0.7)
+		if (weight <= -0.7) {
 			out->Weight = uiTextWeightThin;
-		else if (weight <= -0.5)
+		} else if (weight <= -0.5) {
 			out->Weight = uiTextWeightUltraLight;
-		else if (weight <= -0.3)
+		} else if (weight <= -0.3) {
 			out->Weight = uiTextWeightLight;
-		else if (weight <= -0.23) {
+		} else if (weight <= -0.23) {
 			out->Weight = uiTextWeightBook;
 			if (shouldReallyBeThin(d))
 				out->Weight = uiTextWeightThin;
-		} else if (weight <= 0.0)
+		} else if (weight <= 0.0) {
 			out->Weight = uiTextWeightNormal;
-		else if (weight <= 0.23)
+		} else if (weight <= 0.23) {
 			out->Weight = uiTextWeightMedium;
-		else if (weight <= 0.3)
+		} else if (weight <= 0.3) {
 			out->Weight = uiTextWeightSemiBold;
-		else if (weight <= 0.4)
+		} else if (weight <= 0.4) {
 			out->Weight = uiTextWeightBold;
-		else if (weight <= 0.5)
+		} else if (weight <= 0.5) {
 			out->Weight = uiTextWeightUltraBold;
-		else if (weight <= 0.7)
+		} else if (weight <= 0.7) {
 			out->Weight = uiTextWeightHeavy;
-		else
+		} else {
 			out->Weight = uiTextWeightUltraHeavy;
+		}
+	}
 
-	if (!hasWidth)
+	if (!hasWidth) {
 		// TODO this scale is a bit lopsided
 		if (width <= -0.7) {
 			out->Stretch = uiTextStretchUltraCondensed;
 			if (shouldReallyBeSemiCondensed(d))
 				out->Stretch = uiTextStretchSemiCondensed;
-		} else if (width <= -0.5)
+		} else if (width <= -0.5) {
 			out->Stretch = uiTextStretchExtraCondensed;
-		else if (width <= -0.2)
+		} else if (width <= -0.2) {
 			out->Stretch = uiTextStretchCondensed;
-		else if (width <= -0.1)
+		} else if (width <= -0.1) {
 			out->Stretch = uiTextStretchSemiCondensed;
-		else if (width <= 0.0)
+		} else if (width <= 0.0) {
 			out->Stretch = uiTextStretchNormal;
-		else if (width <= 0.1)
+		} else if (width <= 0.1) {
 			out->Stretch = uiTextStretchSemiExpanded;
-		else if (width <= 0.2)
+		} else if (width <= 0.2) {
 			out->Stretch = uiTextStretchExpanded;
-		else if (width <= 0.6)
+		} else if (width <= 0.6) {
 			out->Stretch = uiTextStretchExtraExpanded;
-		else
+		} else {
 			out->Stretch = uiTextStretchUltraExpanded;
+		}
+	}
 }

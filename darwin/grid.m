@@ -244,7 +244,7 @@ struct uiGrid {
 	NSView ***gv;
 	BOOL **gspan;
 	int x, y;
-	int i;
+	unsigned int i;
 	NSLayoutConstraint *c;
 	int firstx, firsty;
 	BOOL *hexpand, *vexpand;
@@ -627,6 +627,8 @@ dispatch_get_main_queue(),
 		case NSLayoutAttributeTrailing:
 		case NSLayoutAttributeBottom:
 			[c setConstant:-padding];
+			break;
+		default:
 			break;
 		}
 }

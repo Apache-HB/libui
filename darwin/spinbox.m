@@ -155,12 +155,14 @@ static CGFloat stepperYDelta(void)
 
 - (IBAction)stepperClicked:(id)sender
 {
+	(void)sender;
 	[self libui_setValue:[self->stepper integerValue]];
 	(*(self->spinbox->onChanged))(self->spinbox, self->spinbox->onChangedData);
 }
 
 - (void)controlTextDidChange:(NSNotification *)note
 {
+	(void)note;
 	[self libui_setValue:[self->tf integerValue]];
 	(*(self->spinbox->onChanged))(self->spinbox, self->spinbox->onChangedData);
 }
@@ -187,6 +189,8 @@ void uiSpinboxOnChanged(uiSpinbox *s, void (*f)(uiSpinbox *, void *), void *data
 
 static void defaultOnChanged(uiSpinbox *s, void *data)
 {
+	(void)s;
+	(void)data;
 	// do nothing
 }
 

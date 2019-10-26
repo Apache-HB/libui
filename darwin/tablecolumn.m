@@ -19,6 +19,7 @@
 
 - (void)uiprivUpdate:(NSInteger)row
 {
+	(void)row;
 	[self doesNotRecognizeSelector:_cmd];
 }
 
@@ -285,6 +286,7 @@ struct textColumnCreateParams {
 
 - (IBAction)uiprivOnTextFieldAction:(id)sender
 {
+	(void)sender;
 	NSInteger row;
 	uiTableValue *value;
 
@@ -299,6 +301,7 @@ struct textColumnCreateParams {
 
 - (IBAction)uiprivOnCheckboxAction:(id)sender
 {
+	(void)sender;
 	NSInteger row;
 	uiTableValue *value;
 
@@ -535,6 +538,7 @@ struct textColumnCreateParams {
 
 - (IBAction)uiprivOnClicked:(id)sender
 {
+	(void)sender;
 	NSInteger row;
 
 	row = [self->t->tv rowForView:self->b];

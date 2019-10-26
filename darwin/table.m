@@ -68,6 +68,7 @@ static void setBackgroundColor(uiprivTableView *t, NSTableRowView *rv, NSInteger
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tv
 {
+	(void)tv;
 	return uiprivTableModelNumRows(self->m);
 }
 

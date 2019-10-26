@@ -71,6 +71,7 @@ struct uiFontButton {
 
 - (IBAction)fontButtonClicked:(id)sender
 {
+	(void)sender;
 	if ([self state] == NSOnState)
 		[self activateFontButton];
 	else
@@ -112,6 +113,7 @@ struct uiFontButton {
 
 - (void)deactivateOnClose:(NSNotification *)note
 {
+	(void)note;
 	[self deactivateFontButton:NO];
 }
 
@@ -132,8 +134,9 @@ struct uiFontButton {
 	(*(b->onChanged))(b, b->onChangedData);
 }
 
-- (NSUInteger)validModesForFontPanel:(NSFontPanel *)panel
+- (NSFontPanelModeMask)validModesForFontPanel:(NSFontPanel *)panel
 {
+	(void)panel;
 	return NSFontPanelFaceModeMask |
 		NSFontPanelSizeModeMask |
 		NSFontPanelCollectionModeMask;
@@ -159,6 +162,7 @@ uiDarwinControlAllDefaults(uiFontButton, button)
 // see main.m for more details
 BOOL uiprivFontButtonInhibitSendAction(SEL sel, id from, id to)
 {
+	(void)from;
 	if (sel != @selector(changeFont:))
 		return NO;
 	return ![to isKindOfClass:[uiprivFontButton class]];
@@ -168,6 +172,8 @@ BOOL uiprivFontButtonInhibitSendAction(SEL sel, id from, id to)
 // see main.m for more details
 BOOL uiprivFontButtonOverrideTargetForAction(SEL sel, id from, id to, id *override)
 {
+	(void)to;
+	(void)from;
 	if (activeFontButton == nil)
 		return NO;
 	if (sel != @selector(validModesForFontPanel:))
@@ -197,6 +203,8 @@ void uiprivSetupFontPanel(void)
 
 static void defaultOnChanged(uiFontButton *b, void *data)
 {
+	(void)b;
+	(void)data;
 	// do nothing
 }
 

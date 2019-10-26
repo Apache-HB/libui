@@ -38,6 +38,8 @@ struct uiDateTimePicker {
 
 - (void)datePickerCell:(NSDatePickerCell *)cell validateProposedDateValue:(NSDate **)proposedDateValue timeInterval:(NSTimeInterval *)proposedTimeInterval
 {
+	(void)proposedTimeInterval;
+	(void)proposedDateValue;
 	uiDateTimePicker *d;
 
 	d = (uiDateTimePicker *) uiprivMapGet(self->pickers, cell);
@@ -91,6 +93,8 @@ static void uiDateTimePickerDestroy(uiControl *c)
 
 static void defaultOnChanged(uiDateTimePicker *d, void *data)
 {
+	(void)d;
+	(void)data;
 	// do nothing
 }
 

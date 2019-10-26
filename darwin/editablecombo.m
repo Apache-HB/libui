@@ -160,6 +160,8 @@ void uiEditableComboboxOnChanged(uiEditableCombobox *c, void (*f)(uiEditableComb
 
 static void defaultOnChanged(uiEditableCombobox *c, void *data)
 {
+	(void)c;
+	(void)data;
 	// do nothing
 }
 

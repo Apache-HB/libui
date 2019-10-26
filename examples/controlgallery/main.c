@@ -5,6 +5,8 @@
 
 static int onClosing(uiWindow *w, void *data)
 {
+	(void)w;
+	(void)data;
 	uiQuit();
 	return 1;
 }
@@ -85,12 +87,14 @@ static uiProgressBar *pbar;
 
 static void onSpinboxChanged(uiSpinbox *s, void *data)
 {
+	(void)data;
 	uiSliderSetValue(slider, uiSpinboxValue(s));
 	uiProgressBarSetValue(pbar, uiSpinboxValue(s));
 }
 
 static void onSliderChanged(uiSlider *s, void *data)
 {
+	(void)data;
 	uiSpinboxSetValue(spinbox, uiSliderValue(s));
 	uiProgressBarSetValue(pbar, uiSliderValue(s));
 }
@@ -163,6 +167,7 @@ static uiWindow *mainwin;
 
 static void onOpenFileClicked(uiButton *b, void *data)
 {
+	(void)b;
 	uiEntry *entry = uiEntry(data);
 	char *filename;
 
@@ -177,6 +182,8 @@ static void onOpenFileClicked(uiButton *b, void *data)
 
 static void onSaveFileClicked(uiButton *b, void *data)
 {
+	(void)b;
+	(void)data;
 	uiEntry *entry = uiEntry(data);
 	char *filename;
 
@@ -191,6 +198,8 @@ static void onSaveFileClicked(uiButton *b, void *data)
 
 static void onMsgBoxClicked(uiButton *b, void *data)
 {
+	(void)b;
+	(void)data;
 	uiMsgBox(mainwin,
 		"This is a normal message box.",
 		"More detailed information can be shown here.");
@@ -198,6 +207,8 @@ static void onMsgBoxClicked(uiButton *b, void *data)
 
 static void onMsgBoxErrorClicked(uiButton *b, void *data)
 {
+	(void)b;
+	(void)data;
 	uiMsgBoxError(mainwin,
 		"This message box describes an error.",
 		"More detailed information can be shown here.");

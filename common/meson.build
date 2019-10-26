@@ -1,6 +1,6 @@
 # 23 march 2019
 
-libui_sources += [
+sources += [
 	'common/attribute.c',
 	'common/attrlist.c',
 	'common/attrstr.c',

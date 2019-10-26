@@ -57,5 +57,6 @@ void uiprivScrollViewSetScrolling(NSScrollView *sv, uiprivScrollViewData *d, BOO
 
 void uiprivScrollViewFreeData(NSScrollView *sv, uiprivScrollViewData *d)
 {
+	(void)sv;
 	uiprivFree(d);
 }

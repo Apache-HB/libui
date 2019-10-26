@@ -50,6 +50,7 @@ static BOOL stepsIsRunning;
 // (note: this is called after applicationShouldTerminate:)
 - (void)terminate:(id)sender
 {
+	(void)sender;
 	// yes that's right folks: DO ABSOLUTELY NOTHING.
 	// the magic is [NSApp run] will just... stop.
 
@@ -89,6 +90,7 @@ static BOOL stepsIsRunning;
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)app
 {
+	(void)app;
 	// for debugging
 	NSLog(@"in applicationShouldTerminate:");
 	if (uiprivShouldQuit()) {
@@ -101,6 +103,7 @@ static BOOL stepsIsRunning;
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app
 {
+	(void)app;
 	return NO;
 }
 
@@ -152,8 +155,9 @@ void uiUninit(void)
 	}
 }
 
-void uiFreeInitError(const char *err)
+void uiFreeInitError(const char* e)
 {
+	(void)e;
 }
 
 void uiMain(void)
@@ -189,7 +193,8 @@ int uiMainStep(int wait)
 	nea.mode = NSDefaultRunLoopMode;
 	nea.dequeue = YES;
 
-	return uiprivMainStep(&nea, ^(NSEvent *e) {
+	return uiprivMainStep(&nea, ^(NSEvent* e) {
+		(void)e;
 		return NO;
 	});
 }
@@ -199,7 +204,6 @@ int uiMainStep(int wait)
 // - https://github.com/gnustep/gui/blob/master/Source/NSApplication.m
 int uiprivMainStep(uiprivNextEventArgs *nea, BOOL (^interceptEvent)(NSEvent *e))
 {
-	NSDate *expire;
 	NSEvent *e;
 	NSEventType type;
 

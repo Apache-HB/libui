@@ -213,6 +213,7 @@ static void attrGrow(uiprivAttrList *alist, struct attr *a, size_t start, size_t
 // returns the right side of the split, which is unlinked, or NULL if no split was done
 static struct attr *attrSplitAt(uiprivAttrList *alist, struct attr *a, size_t at)
 {
+	(void)alist;
 	struct attr *b;
 
 	// no splittng needed?

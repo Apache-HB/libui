@@ -38,6 +38,11 @@
 
 - (void)draw:(CGContextRef)c layout:(uiDrawTextLayout *)layout at:(double)x y:(double)y utf8Mapping:(const size_t *)u16tou8
 {
+	(void)u16tou8;
+	(void)y;
+	(void)x;
+	(void)layout;
+	(void)c;
 	// TODO
 }
 
@@ -101,6 +106,7 @@
 
 - (void)draw:(uiDrawContext *)c textLayout:(uiDrawTextLayout *)tl at:(double)x y:(double)y
 {
+	(void)tl;
 	uiprivDrawTextBackgroundParams *dtb;
 	CGAffineTransform textMatrix;
 

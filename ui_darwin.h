@@ -62,6 +62,7 @@ _UI_EXTERN void uiDarwinControlChildVisibilityChanged(uiDarwinControl *);
 #define uiDarwinControlDefaultToplevel(type, handlefield) \
 	static int type ## Toplevel(uiControl *c) \
 	{ \
+		(void)c; \
 		return 0; \
 	}
 #define uiDarwinControlDefaultVisible(type, handlefield) \
@@ -120,16 +121,19 @@ _UI_EXTERN void uiDarwinControlChildVisibilityChanged(uiDarwinControl *);
 #define uiDarwinControlDefaultHugsTrailingEdge(type, handlefield) \
 	static BOOL type ## HugsTrailingEdge(uiDarwinControl *c) \
 	{ \
+		(void)c; \
 		return YES; /* always hug by default */ \
 	}
 #define uiDarwinControlDefaultHugsBottom(type, handlefield) \
 	static BOOL type ## HugsBottom(uiDarwinControl *c) \
 	{ \
+		(void)c; \
 		return YES; /* always hug by default */ \
 	}
 #define uiDarwinControlDefaultChildEdgeHuggingChanged(type, handlefield) \
 	static void type ## ChildEdgeHuggingChanged(uiDarwinControl *c) \
 	{ \
+		(void)c; \
 		/* do nothing */ \
 	}
 #define uiDarwinControlDefaultHuggingPriority(type, handlefield) \
@@ -140,11 +144,11 @@ _UI_EXTERN void uiDarwinControlChildVisibilityChanged(uiDarwinControl *);
 #define uiDarwinControlDefaultSetHuggingPriority(type, handlefield) \
 	static void type ## SetHuggingPriority(uiDarwinControl *c, NSLayoutPriority priority, NSLayoutConstraintOrientation orientation) \
 	{ \
-		[type(c)->handlefield setContentHuggingPriority:priority forOrientation:orientation]; \
 	}
 #define uiDarwinControlDefaultChildVisibilityChanged(type, handlefield) \
 	static void type ## ChildVisibilityChanged(uiDarwinControl *c) \
 	{ \
+		(void)c; \
 		/* do nothing */ \
 	}
 

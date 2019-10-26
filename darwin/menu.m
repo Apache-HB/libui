@@ -29,6 +29,7 @@ enum {
 
 static void mapItemReleaser(void *key, void *value)
 {
+	(void)key;
 	uiMenuItem *item;
  
 	item = (uiMenuItem *) value;
@@ -71,6 +72,7 @@ static void mapItemReleaser(void *key, void *value)
 
 - (IBAction)onQuitClicked:(id)sender
 {
+	(void)sender;
 	if (uiprivShouldQuit())
 		uiQuit();
 }
@@ -195,6 +197,9 @@ static void mapItemReleaser(void *key, void *value)
 
 static void defaultOnClicked(uiMenuItem *item, uiWindow *w, void *data)
 {
+	(void)item;
+	(void)w;
+	(void)data;
 	// do nothing
 }
 
@@ -224,6 +229,7 @@ int uiMenuItemChecked(uiMenuItem *item)
 
 void uiMenuItemSetChecked(uiMenuItem *item, int checked)
 {
+	(void)checked;
 	NSInteger state;
 
 	state = NSOffState;
@@ -348,12 +354,16 @@ void uiprivUninitMenus(void)
 	if (menus == NULL)
 		return;
 	[menus enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
+		(void)stop;
+		(void)index;
 		NSValue *v;
 		uiMenu *m;
 
 		v = (NSValue *) obj;
 		m = (uiMenu *) [v pointerValue];
 		[m->items enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
+			(void)index;
+			(void)stop;
 			NSValue *v;
 			uiMenuItem *mi;
 

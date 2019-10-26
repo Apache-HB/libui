@@ -97,6 +97,7 @@ static const int toc[] = {
 
 static uiForEach featuresHash(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value, void *data)
 {
+	(void)otf;
 	NSUInteger *hash = (NSUInteger *) data;
 	uint32_t tag;
 
@@ -258,12 +259,12 @@ static void addFontAttributeToRange(struct foreachParams *p, size_t start, size_
 			cfa = [cfa copy];
 		[cfa addAttribute:attr];
 		// clamp range within [start, end)
-		if (range.location < start) {
+		if ((unsigned long)range.location < start) {
 			diff = start - range.location;
 			range.location = start;
 			range.length -= diff;
 		}
-		if ((range.location + range.length) > end)
+		if ((unsigned long)(range.location + range.length) > end)
 			range.length = end - range.location;
 		CFAttributedStringSetAttribute(p->mas, range, combinedFontAttrName, cfa);
 		[cfa release];
@@ -334,7 +335,7 @@ static uiForEach processAttribute(const uiAttributedString *s, const uiAttribute
 	case uiAttributeTypeItalic:
 	case uiAttributeTypeStretch:
 	case uiAttributeTypeFeatures:
-		addFontAttributeToRange(p, start, end, attr);
+		addFontAttributeToRange(p, start, end, (uiAttribute*)attr);
 		break;
 	case uiAttributeTypeColor:
 		uiAttributeColor(attr, &r, &g, &b, &a);

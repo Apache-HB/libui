@@ -125,13 +125,18 @@ struct uiArea {
 	[self setupNewTrackingArea];
 }
 
+#if defined(__clang__)
+#	pragma clang diagnostic push
+#	pragma clang diagnostic ignored "-Wgnu-folding-constant"
+#endif
+
 // capture on drag is done automatically on OS X
 - (void)doMouseEvent:(NSEvent *)e
 {
 	uiArea *a = self->libui_a;
 	uiAreaMouseEvent me;
 	NSPoint point;
-	int buttonNumber;
+	unsigned int buttonNumber;
 	NSUInteger pmb;
 	unsigned int i, max;
 
@@ -176,6 +181,8 @@ struct uiArea {
 		// we include the button that triggered the dragged event in the Held fields
 		buttonNumber = 0;
 		break;
+	default:
+		break;
 	}
 
 	me.Modifiers = [self parseModifiers:e];
@@ -209,6 +216,10 @@ struct uiArea {
 	}
 }
 
+#if defined(__clang__)
+#	pragma clang diagnostic pop
+#endif
+
 #define mouseEvent(name) \
 	- (void)name:(NSEvent *)e \
 	{ \
@@ -227,6 +238,7 @@ mouseEvent(otherMouseUp)
 
 - (void)mouseEntered:(NSEvent *)e
 {
+	(void)e;
 	uiArea *a = self->libui_a;
 
 	if (self->libui_enabled)
@@ -235,6 +247,7 @@ mouseEvent(otherMouseUp)
 
 - (void)mouseExited:(NSEvent *)e
 {
+	(void)e;
 	uiArea *a = self->libui_a;
 
 	if (self->libui_enabled)
@@ -382,6 +395,8 @@ int uiprivSendAreaEvents(NSEvent *e)
 		return [view doKeyUp:e];
 	case NSFlagsChanged:
 		return [view doFlagsChanged:e];
+	default:
+		break;
 	}
 	return 0;
 }

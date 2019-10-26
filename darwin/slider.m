@@ -106,6 +106,8 @@ void uiSliderOnChanged(uiSlider *s, void (*f)(uiSlider *, void *), void *data)
 
 static void defaultOnChanged(uiSlider *s, void *data)
 {
+	(void)s;
+	(void)data;
 	// do nothing
 }
 

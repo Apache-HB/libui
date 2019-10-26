@@ -41,6 +41,7 @@ struct uiColorButton {
 
 - (void)activate:(BOOL)exclusive
 {
+	(void)exclusive;
 	if (activeColorButton != nil)
 		activeColorButton->libui_changing = YES;
 	[NSColorPanel setPickerMask:NSColorPanelAllModesMask];
@@ -69,6 +70,7 @@ struct uiColorButton {
 
 - (void)deactivateOnClose:(NSNotification *)note
 {
+	(void)note;
 	[self deactivate];
 }
 
@@ -119,6 +121,7 @@ uiDarwinControlAllDefaults(uiColorButton, button)
 // see main.m for more details
 BOOL uiprivColorButtonInhibitSendAction(SEL sel, id from, id to)
 {
+	(void)from;
 	if (sel != @selector(changeColor:))
 		return NO;
 	return ![to isKindOfClass:[colorButton class]];
@@ -126,6 +129,8 @@ BOOL uiprivColorButtonInhibitSendAction(SEL sel, id from, id to)
 
 static void defaultOnChanged(uiColorButton *b, void *data)
 {
+	(void)b;
+	(void)data;
 	// do nothing
 }
 

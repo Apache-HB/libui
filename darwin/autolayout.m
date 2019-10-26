@@ -18,11 +18,13 @@ NSLayoutConstraint *uiprivMkConstraint(id view1, NSLayoutAttribute attr1, NSLayo
 
 CGFloat uiDarwinMarginAmount(void *reserved)
 {
+	(void)reserved;
 	return 20.0;
 }
 
 CGFloat uiDarwinPaddingAmount(void *reserved)
 {
+	(void)reserved;
 	return 8.0;
 }
 

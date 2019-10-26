@@ -172,6 +172,8 @@ void uiEntrySetReadOnly(uiEntry *e, int readonly)
 
 static void defaultOnChanged(uiEntry *e, void *data)
 {
+	(void)e;
+	(void)data;
 	// do nothing
 }
 

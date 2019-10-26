@@ -39,6 +39,7 @@ struct uiRadioButtons {
 
 - (IBAction)onClicked:(id)sender
 {
+	(void)sender;
 	uiRadioButtons *r = self->libui_r;
 
 	(*(r->onSelected))(r, r->onSelectedData);
@@ -50,6 +51,8 @@ uiDarwinControlAllDefaultsExceptDestroy(uiRadioButtons, view)
 
 static void defaultOnSelected(uiRadioButtons *r, void *data)
 {
+	(void)r;
+	(void)data;
 	// do nothing
 }
 
