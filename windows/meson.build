@@ -68,7 +68,8 @@ sources += [
 
 links += [
 	'user32',
-	'kernel32'
+	'kernel32',
+	'd2d1'
 ]
 
 
