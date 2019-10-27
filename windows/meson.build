@@ -66,10 +66,14 @@ sources += [
 	'windows/winutil.cpp',
 ]
 
-links += [
+foreach lib : [
 	'user32',
 	'kernel32',
-	'd2d1'
+	'd2d1',
+	'uxtheme',
+	'dwrite',
+	'windowscodecs'
 ]
-
+	deps += meson.get_compiler('cpp').find_library(lib, required : true)
+endforeach
 
